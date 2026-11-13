@@ -1125,8 +1125,8 @@ function spin(){
   const stop = spinsLeft === 1 ? CONFIG.firstStop : CONFIG.winStop;
   const jitter = (Math.random() - .5) * SEG * .5;
   const base = angle - (angle % 360);
-  const target = base + 360 * (spinsLeft === 1 ? 5 : 7) + ((360 - stop * SEG) % 360) + jitter;
-  const from = angle, dur = spinsLeft === 1 ? 4600 : 6000, t0 = performance.now();
+  const target = base + 360 * 4 + ((360 - stop * SEG) % 360) + jitter;
+  const from = angle, dur = 3000, t0 = performance.now();
   let lastSeg = Math.floor((from + SEG/2) / SEG);
 
   (function step(now){
@@ -1159,7 +1159,7 @@ function landed(stop){
   const r = wrap.getBoundingClientRect();
   burst(r.left + r.width/2, r.top + r.height*.25, 160, 14);
   $("left").textContent = "6";
-  setTimeout(showWin, 1100);
+  setTimeout(showWin, 800);
 }
 
 function showWin(){
